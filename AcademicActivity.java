@@ -49,4 +49,3 @@ public class AcademicActivity{
     public LocalDateTime getStartDateTime() { return startDateTime; }
     public LocalDateTime getEndDateTime() { return endDateTime; }
 }
-
