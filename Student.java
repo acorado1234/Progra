@@ -2,14 +2,16 @@ import java.util.List;
 
 public class Student extends User {
     private String major;
-    private List<String> interests;
+    private List<String> interests; 
+
 
     public Student(String id, String name, String email, String password, String major, List<String> interests) {
         super(id, name, email, password);
         this.major = major;
-        this.interests = interests;
+        this.interests = interests; 
     }
 
+  
     public String getMajor() {
         return major;
     }
@@ -23,7 +25,7 @@ public class Student extends User {
     }
 
     public void setInterests(List<String> interests) {
-        this.intersts = interests;
+        this.interests = interests;
     }
 
     @Override
