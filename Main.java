@@ -133,6 +133,7 @@ public class Main {
                         break;
                     }
                 }
+            //Utilizamos una instancia para ver si el id del tutor es igual al ingresado 
                 if (tutor != null) {
                     List<Student> matches = matchingSystem.findMatchesForTutor(tutor);
                     System.out.println("Coincidencias encontradas para el tutor " + tutor.getName() + ":");
