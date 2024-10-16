@@ -1,18 +1,20 @@
 import java.time.DayOfWeek;
 import java.time.LocalTime;
-public class TimeSlot{
-  
-  private DayOfWeek day;
-  private LocalTime startTime;
-  private LocalTime endTime;
 
-  public TimeSlot(DayOfWeek day, LocalTime startTime, LocalTime endTime) {
-      this.day = day;
-      this.startTime = startTime;
-      this.endTime = endTime;
+public class TimeSlot {
+    private DayOfWeek day;
+    private LocalTime startTime;
+    private LocalTime endTime;
+
+
+    public TimeSlot(DayOfWeek day, LocalTime startTime, LocalTime endTime) {
+        this.day = day;
+        this.startTime = startTime;
+        this.endTime = endTime;
     }
 
-  public DayOfWeek getDay() {
+
+    public DayOfWeek getDay() {
         return day;
     }
 
@@ -36,6 +38,7 @@ public class TimeSlot{
         this.endTime = endTime;
     }
 
+    
     @Override
     public String toString() {
         return "Día: " + day + ", De: " + startTime + " a " + endTime;
