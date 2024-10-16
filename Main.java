@@ -205,6 +205,7 @@ public class Main {
                 System.out.print("Ingrese sus especializaciones (separadas por comas): ");
                 String[] specializationsArray = scanner.nextLine().split(",");
                 List<String> specializations = Arrays.asList(specializationsArray);
+              //Llamamos el arreglo de especialidad de la clase tutor como una lista asi podemos agregar al tutor con toda su informacion
                 users.add(new Tutor(id, name, email, password, subjectExpertise, specializations));
                 System.out.println("Tutor registrado exitosamente.");
             else {
