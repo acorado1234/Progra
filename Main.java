@@ -195,6 +195,7 @@ public class Main {
                 String major = scanner.nextLine();
                 System.out.print("Ingrese sus intereses (separados por comas): ");
                 String[] interestsArray = scanner.nextLine().split(",");
+              //Arreglo para llamar la funcion interes de estudiante
                 List<String> interests = Arrays.asList(interestsArray);
                 users.add(new Student(id, name, email, password, major, interests));
                 System.out.println("Estudiante registrado exitosamente.");
