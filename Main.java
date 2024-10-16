@@ -183,6 +183,7 @@ public class Main {
             String email = scanner.nextLine();
             System.out.print("Ingrese su contraseña: ");
             String password = scanner.nextLine();
+          //Si el entero i = 0 solicitamos todos los datos para verificar que tipo de cuenta tiene si de estudiante o tutor 
 
             System.out.print("¿Es estudiante o tutor? (1. Estudiante, 2. Tutor): ");
             int userType = scanner.nextInt();
