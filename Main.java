@@ -207,6 +207,7 @@ public class Main {
                 System.out.println("Tutor registrado exitosamente.");
             else {
                 System.out.println("Opción no válida.");
+              // Opcion final para agregar un nuevo tutor y registrarlo en la db
 }
 
 }
