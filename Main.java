@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
+//Funciones utilizadas en todo el codigo para gestionar un control ordenado de los usuarios 
 
 public class Main {
 
