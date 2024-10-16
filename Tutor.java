@@ -1,20 +1,21 @@
+import java.util.List;
 
 public class Tutor extends User {
-    private Schedule availability;
     private List<String> specializations;
-    private String subjectExpertise; // Materia en la que es experto el tutor
-    private float rating;
+    protected Schedule availability;
+    protected String subjectExpertise; 
+    protected float rating;
 
-    // Constructor
-    public Tutor(String id, String name, String email, String password, List<String> specializations,String subjectExpertise) {
+    
+    public Tutor(String id, String name, String email, String password, String subjectExpertise, List<String> specializations) {
         super(id, name, email, password);
         this.availability = new Schedule();
-        this.specializations = specializations; 
         this.subjectExpertise = subjectExpertise;
+        this.specializations = specializations;  
         this.rating = 0;
     }
 
-    // Getter y Setter para 'subjectExpertise'
+
     public String getSubjectExpertise() {
         return subjectExpertise;
     }
@@ -23,12 +24,27 @@ public class Tutor extends User {
         this.subjectExpertise = subjectExpertise;
     }
 
+    
     public List<String> getSpecializations() {
         return specializations;
     }
 
-     public void setSpecializations(List<String> specializations) {
+    public void setSpecializations(List<String> specializations) {
         this.specializations = specializations;
+    }
+
+    
+    public float getRating() {
+        return rating;
+    }
+
+    public void setRating(float rating) {
+        this.rating = rating;
+    }
+
+   
+    public Schedule getAvailability() {
+        return availability;
     }
 
     @Override
@@ -37,20 +53,5 @@ public class Tutor extends User {
         System.out.println("Subject Expertise: " + subjectExpertise);
         System.out.println("Specializations: " + String.join(", ", specializations));
         System.out.println("Rating: " + rating);
-    }
-    
-    public Schedule getAvailability() {
-        return availability;
-    }
-
-    public void setAvailability(Schedule availability) {
-        this.availability = availability;
-    }
-    
-    public void setRating(float rating) {
-        this.rating = rating;
-    }
-     public float getRating() {
-        return this.rating;
     }
 }
