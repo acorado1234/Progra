@@ -98,6 +98,7 @@ public class Main {
 
         int option = scanner.nextInt();
         scanner.nextLine(); 
+      //Utilizamos funcion scanner para ver si hay coincidencias entre estudiante o tutor 
         
         switch (option) {
             case 1:
