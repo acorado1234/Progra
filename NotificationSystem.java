@@ -1,8 +1,9 @@
 import java.util.*;
 
 public class NotificationSystem {
-    private Map<User, List<Notification>> userNotifications;
-public NotificationSystem() {
+    public  Map<User, List<Notification>> userNotifications;
+
+    public NotificationSystem() {
         this.userNotifications = new HashMap<>();
     }
 
