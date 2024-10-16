@@ -21,7 +21,7 @@ public class Schedule {
 
    
     public List<TimeSlot> getAvailableTimes() {
-        return new ArrayList<>(availableTimes);
+        return this.availableTimes;
     }
 
 }
