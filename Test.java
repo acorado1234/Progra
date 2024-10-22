@@ -15,4 +15,22 @@ public class Test{
   public void agregarPregunta(Question pregunta) {
     preguntas.add(pregunta);
     }
+  
+  public Void realizarExamen() {
+        Scanner scanner = new Scanner(System.in);
+        for (Question pregunta : preguntas) {
+            pregunta.mostrarPregunta();
+            System.out.print("Selecciona tu respuesta: ");
+            int respuesta = scanner.nextInt();
+            //scanner.nextLine();
+
+            if (pregunta.esRespuestaCorrecta(respuesta)) {
+                this.respuestasCorrectas++;
+            }
+        }
+        return null;
+    }
+  public int getRespuestasCorrectas(){
+        return this.respuestasCorrectas;
+    }
 }
