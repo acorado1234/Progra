@@ -20,4 +20,12 @@ public class Question{
             System.out.println((i + 1) + ". " + opciones.get(i));
         }
     }
+
+  public boolean esRespuestaCorrecta(int respuesta) {
+         if (respuesta == this.respuestaCorrecta) {
+             return true;
+         } else{
+            return false;
+         }
+    }
 }
