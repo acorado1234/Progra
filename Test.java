@@ -60,5 +60,12 @@ public class Test{
       System.out.println("Error al leer el archivo: " + e.getMessage());
     }
   }
+  /**
+  *Obtiene el num de preguntas en el examen
+  *@return el num de preguntas
+  *\
+  public int obtenerNumeroPreguntas() {
+    return preguntas.size();
+  }
   
 }
