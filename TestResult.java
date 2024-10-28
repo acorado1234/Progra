@@ -24,7 +24,10 @@ public TestResult(Student alumno, int respuestasCorrectas, int totalPreguntas) {
 public void mostrarResultado() {
  System.out.println("Alumno: " + alumno.getName());
  System.out.println("Respuestas correctas: " + respuestasCorrectas + "/" + totalPreguntas);
- 
- 
+ double porcentaje = ((double) respuestasCorrectas / totalPreguntas) * 100;
+ System.out.println("Porcentaje: " + porcentaje + "%");
+}
+}
+
  
  
