@@ -16,4 +16,12 @@ public TestResult(Student alumno, int respuestasCorrectas, int totalPreguntas) {
  this.respuestasCorrectas = respuestasCorrectas;
  this.totalPreguntas = totalPreguntas;
 }
+
+/**
+ * Muestra los resultados
+ */
+
+public void mostrarResultado() {
+ 
+ 
  
