@@ -105,7 +105,7 @@ public class Main {
         return null;
     }
 
-
+    //Metodo para registrar nuevo usuario
     private static void register() {
         System.out.print("Ingrese su ID: ");
         String id = scanner.nextLine();
