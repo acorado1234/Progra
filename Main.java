@@ -320,6 +320,39 @@ public class Main {
                 System.out.println("Opción no válida.");
         }
     }
+public static void addActivity(){
+        System.out.print("Ingrese su Id de tutor ");
+        String tutorId = scanner.nextLine();
+        Tutor tutor = null;
+        for (User  user : users) {
+            if (user instanceof Tutor && user.getId().equals(tutorId)) {
+                tutor = (Tutor) user;
+            }
+        }
+        System.out.print("Ingrese el nombre del evento: ");
+        String name = scanner.nextLine();
+        System.out.println("Ingrese una descripcion del evento: ");
+        String description = scanner.nextLine();
+        System.out.print("Ingrese la capacidad maxima del evento: ");
+        int capacity = scanner.nextInt();
+        scanner.nextLine();
+        System.out.print("Ingrese la fecha del evento (AAAA-MM-DD): ");
+        String date = scanner.nextLine();
+        System.out.print("Ingrese la hora de inicio del evento (HH:MM:SS): ");
+        String time = scanner.nextLine();
+        System.out.print("Ingrese la hora de fin del evento (HH:MM:SS): ");
+        String endTime = scanner.nextLine();
 
+        String horaInicioStr = date + "T" + time;
+        String horaFinStr = date + "T" + endTime;
+        DateTimeFormatter formatter = DateTimeFormatter.ISO_LOCAL_DATE_TIME;
+        LocalDateTime horaInicio = LocalDateTime.parse(horaInicioStr, formatter);
+        LocalDateTime horaFin = LocalDateTime.parse(horaFinStr, formatter);
+
+        AcademicActivity actividad = new AcademicActivity(tutor, name, description, capacity, horaInicio, horaFin);
+        activities.add(actividad);
+        System.out.println("Actividad agregada con exito!");
+
+    }
 
 }
