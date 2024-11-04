@@ -1,0 +1,5 @@
+pregunta,opcion1,opcion2,opcion3,opcion4,opcioncorrecta
+Derivada de ln(x),2,x,1/x,2x,3
+log(x*y)=,log(x)*log(y),log(x)+log(y),log(x)/log(y),log(2x)*log(2y),2
+log(x/y)=,log(x)-log(y),log(x)+log(y),log(x)*log(y),log(x)/log(y),1
+log(x^a)=,log(x)^a,log(x)/a,a*log(x),log(x),3
