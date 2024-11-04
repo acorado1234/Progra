@@ -293,7 +293,7 @@ public class Main {
                         System.out.println(match.getName());
                     }
                 } else {
-                    System.out.println("Estudiante no encontrado.");
+                    System.out.println("Estudiante no encontrado.");//SI se ingresa a alguien no registrado notificara
                 }
                 break;
             case 2:
