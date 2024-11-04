@@ -15,11 +15,11 @@ public class Main {
     private static ArrayList<AcademicActivity> activities = new ArrayList<>();
     private static Scanner scanner = new Scanner(System.in);
     private static final String CSV_FILE = "users.csv";
-//insertamos los csv para que se pueda dar ingreso
-    public static void main(String[] args) {
 
+    public static void main(String[] args) {
+       
         try (BufferedReader br = new BufferedReader(new FileReader("users.csv"))) {
-//Funcion para abrir el acceso a la base de datos 
+
             br.readLine();
             String line;
             while ((line = br.readLine()) != null) {
@@ -46,11 +46,12 @@ public class Main {
         }catch (IOException e){
             System.out.println("Error");
         }
-        System.out.println("\n--- Sistema de Tutorías ---");
+        
+            System.out.println("\n--- Sistema de Tutorías ---");
             System.out.println("1. Iniciar sesión");
             System.out.println("2. Registrarse");
             System.out.print("Seleccione una opción: ");
-     //Abrimos metodo para dar opciones de ingreso al sistema    
+        
             int option = scanner.nextInt();
             scanner.nextLine(); 
         
@@ -69,7 +70,9 @@ public class Main {
             System.out.println("1. Ver historial de actividades");
             System.out.println("2. Encontrar coincidencias");
             System.out.println("3. Realizar examen de opción múltiple");  // Nueva opción para el examen
-            System.out.println("4. Salir");
+            System.out.println("4. Crear Actividad");
+            System.out.println("5. Unirse a una actividad");
+            System.out.println("6. Salir");
             System.out.print("Seleccione una opción: ");
             int option2 = scanner.nextInt();
             scanner.nextLine();
@@ -116,21 +119,21 @@ public class Main {
         }
     }
 
-    
+
     private static void takeTest(String archivo) {
         Test examen = new Test();
         examen.cargarPreguntasDesdeCSV(archivo);  // Carga las preguntas desde el archivo CSV
         examen.realizarExamen();
         System.out.println("Respuestas correctas: " + examen.getRespuestasCorrectas() + "/" + examen.obtenerNumeroPreguntas());
     }
-  
+
     private static void login() {
         System.out.print("Ingrese su email: ");
         String email = scanner.nextLine();
         System.out.print("Ingrese su contraseña: ");
         String password = scanner.nextLine();
 
-        User user = authenticateUser(email, password);//Metodo de log in
+        User user = authenticateUser(email, password);
 
         if (user != null) {
             System.out.println("Bienvenido " + user.getName());
@@ -148,6 +151,7 @@ public class Main {
                 writer.append(student.getId()).append(",")
                       .append(student.getName()).append(",")
                       .append(student.getEmail()).append(",")
+                      .append(student.getPassword()).append(",")
                       .append("Estudiante").append(",")
                       .append(student.getMajor()).append(",")
                       .append(String.join(";", student.getInterests())).append("\n");
@@ -156,6 +160,7 @@ public class Main {
                 writer.append(tutor.getId()).append(",")
                       .append(tutor.getName()).append(",")
                       .append(tutor.getEmail()).append(",")
+                      .append(tutor.getPassword()).append(",")
                       .append("Tutor").append(",")
                       .append(tutor.getSubjectExpertise()).append(",")
                       .append(String.join(";", tutor.getSpecializations())).append("\n");
@@ -171,12 +176,14 @@ public class Main {
         for (User user : users) {
             if (user.getEmail().equals(email) && user.getPassword().equals(password)) {
                 return user;
+            }else{
+                return null;
             }
         }
         return null;
     }
 
-    //Metodo para registrar nuevo usuario
+
     private static void register() {
         System.out.print("Ingrese su ID: ");
         String id = scanner.nextLine();
@@ -188,8 +195,8 @@ public class Main {
         String password = scanner.nextLine();
         System.out.print("¿Es estudiante o tutor? (1. Estudiante, 2. Tutor): ");
         int userType = scanner.nextInt();
-        scanner.nextLine(); 
-//Tipos de usuario 
+        //scanner.nextLine(); 
+
         if (userType == 1) {
             System.out.print("Ingrese su carrera: ");
             String major = scanner.nextLine();
@@ -213,9 +220,10 @@ public class Main {
         }
     }
 
+   
     private static void enterUsers() {
         System.out.println("\n--- Ingresar Usuarios (Estudiantes/Tutores) ---");
-        System.out.print("¿Cuántos usuarios desea ingresar? ");//Ingresar mas de 1 usuario al momento
+        System.out.print("¿Cuántos usuarios desea ingresar? ");
         int numberOfUsers = scanner.nextInt();
         scanner.nextLine(); 
 
@@ -251,16 +259,18 @@ public class Main {
             }
         }
     }
+
    
     private static void showActivityHistory() {
-        System.out.println("\n--- Historial de Actividades ---");//Referencias para implementar sugerencias de tareas,tutor,etc..
+        System.out.println("\n--- Historial de Actividades ---");
         for (AcademicActivity activity : activities) {
             System.out.println(activity.toString());
         }
     }
 
+    
     private static void userMenu(User user) {
-        System.out.println("\n--- Bienvenido, " + user.getName() + " ---");//Menu introductorio para los usuarios que utilicen y se registren en la app 
+        System.out.println("\n--- Bienvenido, " + user.getName() + " ---");
        
     }
 
@@ -301,7 +311,7 @@ public class Main {
                         System.out.println(match.getName());
                     }
                 } else {
-                    System.out.println("Estudiante no encontrado.");//SI se ingresa a alguien no registrado notificara
+                    System.out.println("Estudiante no encontrado.");
                 }
                 break;
             case 2:
@@ -316,7 +326,7 @@ public class Main {
                 }
                 if (tutor != null) {
                     List<Student> matches = matchingSystem.findMatchesForTutor(tutor);
-                    System.out.println("Coincidencias encontradas para el tutor " + tutor.getName() + ":");//Buscar parecidos por medio de un sistema de match
+                    System.out.println("Coincidencias encontradas para el tutor " + tutor.getName() + ":");
                     for (Student match : matches) {
                         System.out.println(match.getName());
                     }
@@ -328,7 +338,7 @@ public class Main {
                 System.out.println("Opción no válida.");
         }
     }
-public static void addActivity(){
+    public static void addActivity(){
         System.out.print("Ingrese su Id de tutor ");
         String tutorId = scanner.nextLine();
         Tutor tutor = null;
@@ -362,7 +372,7 @@ public static void addActivity(){
         System.out.println("Actividad agregada con exito!");
 
     }
-public static void joinActivity(){
+    public static void joinActivity(){
         System.out.print("Ingrese su Id de estudiante ");
         String studentId = scanner.nextLine();
         Student student = null;
