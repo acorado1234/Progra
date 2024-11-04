@@ -119,7 +119,7 @@ public class Main {
         System.out.print("Ingrese su contraseña: ");
         String password = scanner.nextLine();
 
-        User user = authenticateUser(email, password);
+        User user = authenticateUser(email, password);//Metodo de log in
 
         if (user != null) {
             System.out.println("Bienvenido " + user.getName());
