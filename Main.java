@@ -202,7 +202,6 @@ public class Main {
         }
     }
 
-   
     private static void enterUsers() {
         System.out.println("\n--- Ingresar Usuarios (Estudiantes/Tutores) ---");
         System.out.print("¿Cuántos usuarios desea ingresar? ");//Ingresar mas de 1 usuario al momento
@@ -241,7 +240,6 @@ public class Main {
             }
         }
     }
-
    
     private static void showActivityHistory() {
         System.out.println("\n--- Historial de Actividades ---");//Referencias para implementar sugerencias de tareas,tutor,etc..
@@ -250,7 +248,6 @@ public class Main {
         }
     }
 
-    
     private static void userMenu(User user) {
         System.out.println("\n--- Bienvenido, " + user.getName() + " ---");//Menu introductorio para los usuarios que utilicen y se registren en la app 
        
@@ -354,5 +351,27 @@ public static void addActivity(){
         System.out.println("Actividad agregada con exito!");
 
     }
-
+public static void joinActivity(){
+        System.out.print("Ingrese su Id de estudiante ");
+        String studentId = scanner.nextLine();
+        Student student = null;
+        for (User  user : users) {
+            if (user instanceof Student && user.getId().equals(studentId)) {
+                student = (Student) user;
+            }
+        }
+        for (AcademicActivity activity : activities){
+            System.out.println("Id de la actividad: " + activity.getId() + "Nombre de la actividad: " + activity.getTitle());
+        }
+        System.out.print("Ingrese el Id de la actividad que desea unirse: ");
+        String activityId = scanner.nextLine();
+        for (AcademicActivity activity : activities){
+            if (activity.getId().equals(activityId)){
+                activity.addStudent(student);
+                System.out.println("Se ha unido a la actividad con exito!");
+            }else{
+                System.out.println("No se ha encontrado la actividad");
+            }
+        }
+    }
 }
