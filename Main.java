@@ -30,8 +30,17 @@ public class Main {
                     List<String> specialization = Arrays.asList(SpecializationsArray);
                     Tutor tutor = new Tutor(id, name, email, password, subject, specialization);
                     users.add(tutor);
-                } 
+                } else{
+                    String major = values[5];
+                    String[] interestsArray = scanner.nextLine().split(",");
+                    List<String> interests = Arrays.asList(interestsArray);
+                    Student alumno = new Student(id, name, email, password, major, interests);
+                    users.add(alumno);
+                }
             }
+        
+        }catch (IOException e){
+            System.out.println("Error");
         }
         while (true) {
             System.out.println("\n--- Sistema de Tutorías ---");
