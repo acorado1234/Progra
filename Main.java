@@ -11,7 +11,7 @@ public class Main {
     private static ArrayList<AcademicActivity> activities = new ArrayList<>();
     private static Scanner scanner = new Scanner(System.in);
     private static final String CSV_FILE = "users.csv";
-
+//insertamos los csv para que se pueda dar ingreso
     public static void main(String[] args) {
 
         try (BufferedReader br = new BufferedReader(new FileReader("users.csv"))) {
