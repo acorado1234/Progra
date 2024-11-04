@@ -77,7 +77,7 @@ public class Main {
                 findMatches();
                     break;
                 case 3:
-                System.out.println("¿Que tema desea repasar? \n1.algebra \n2.funciones \n3.logaritmos \n4.trigonometria");
+                System.out.println("¿Que tema desea repasar? \n1.algebra \n2.funciones \n3.logaritmos \n4.trigonometria");//Funcion para reforzar el tema deseado con archivos csv
                 int tema = scanner.nextInt();
                 scanner.nextLine();
                 switch (tema) {
