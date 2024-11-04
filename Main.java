@@ -42,6 +42,24 @@ public class Main {
         }catch (IOException e){
             System.out.println("Error");
         }
+        System.out.println("\n--- Sistema de Tutorías ---");
+            System.out.println("1. Iniciar sesión");
+            System.out.println("2. Registrarse");
+            System.out.print("Seleccione una opción: ");
+        
+            int option = scanner.nextInt();
+            scanner.nextLine(); 
+        
+            switch (option) {
+                case 1:
+                    login();
+                    break;
+                case 2:
+                    register();
+                    break;
+                default:
+                    System.out.println("Opción no válida.");
+            }
         while (true) {
             System.out.println("\n--- Sistema de Tutorías ---");
             System.out.println("1. Iniciar sesión");
