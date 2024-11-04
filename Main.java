@@ -205,7 +205,7 @@ public class Main {
    
     private static void enterUsers() {
         System.out.println("\n--- Ingresar Usuarios (Estudiantes/Tutores) ---");
-        System.out.print("¿Cuántos usuarios desea ingresar? ");
+        System.out.print("¿Cuántos usuarios desea ingresar? ");//Ingresar mas de 1 usuario al momento
         int numberOfUsers = scanner.nextInt();
         scanner.nextLine(); 
 
