@@ -46,7 +46,7 @@ public class Main {
             System.out.println("1. Iniciar sesión");
             System.out.println("2. Registrarse");
             System.out.print("Seleccione una opción: ");
-        
+     //Abrimos metodo para dar opciones de ingreso al sistema    
             int option = scanner.nextInt();
             scanner.nextLine(); 
         
