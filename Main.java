@@ -308,7 +308,7 @@ public class Main {
                 }
                 if (tutor != null) {
                     List<Student> matches = matchingSystem.findMatchesForTutor(tutor);
-                    System.out.println("Coincidencias encontradas para el tutor " + tutor.getName() + ":");
+                    System.out.println("Coincidencias encontradas para el tutor " + tutor.getName() + ":");//Buscar parecidos por medio de un sistema de match
                     for (Student match : matches) {
                         System.out.println(match.getName());
                     }
