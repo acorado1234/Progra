@@ -77,7 +77,7 @@ public class Main {
                 findMatches();
                     break;
                 case 3:
-                System.out.println("¿Que tema desea repasar? \n1.algebra \n2.funciones \n3.logaritmos \n4.trigonometria");//Funcion para reforzar el tema deseado con archivos csv
+                System.out.println("¿Que tema desea repasar? \n1.algebra \n2.funciones \n3.logaritmos \n4.trigonometria");
                 int tema = scanner.nextInt();
                 scanner.nextLine();
                 switch (tema) {
@@ -99,6 +99,12 @@ public class Main {
                 }
                     break;
                 case 4:
+                    addActivity();
+                    break;
+                case 5:
+                    joinActivity();
+                    break;
+                case 6:
                     return;
                 default:
                  System.out.println("Opción no válida.");
@@ -106,6 +112,7 @@ public class Main {
         }
     }
 
+    
     private static void takeTest(String archivo) {
         Test examen = new Test();
         examen.cargarPreguntasDesdeCSV(archivo);  // Carga las preguntas desde el archivo CSV
