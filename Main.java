@@ -52,6 +52,12 @@ public class Main {
         }
     }
 
+    private static void takeTest(String archivo) {
+        Test examen = new Test();
+        examen.cargarPreguntasDesdeCSV(archivo);  // Carga las preguntas desde el archivo CSV
+        examen.realizarExamen();
+        System.out.println("Respuestas correctas: " + examen.getRespuestasCorrectas() + "/" + examen.obtenerNumeroPreguntas());
+    }
   
     private static void login() {
         System.out.print("Ingrese su email: ");
