@@ -244,7 +244,7 @@ public class Main {
 
    
     private static void showActivityHistory() {
-        System.out.println("\n--- Historial de Actividades ---");
+        System.out.println("\n--- Historial de Actividades ---");//Referencias para implementar sugerencias de tareas,tutor,etc..
         for (AcademicActivity activity : activities) {
             System.out.println(activity.toString());
         }
