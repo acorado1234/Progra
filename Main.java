@@ -15,7 +15,7 @@ public class Main {
     public static void main(String[] args) {
 
         try (BufferedReader br = new BufferedReader(new FileReader("users.csv"))) {
-
+//Funcion para abrir el acceso a la base de datos 
             br.readLine();
             String line;
             while ((line = br.readLine()) != null) {
