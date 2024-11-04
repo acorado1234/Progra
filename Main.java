@@ -178,7 +178,7 @@ public class Main {
         System.out.print("¿Es estudiante o tutor? (1. Estudiante, 2. Tutor): ");
         int userType = scanner.nextInt();
         scanner.nextLine(); 
-
+//Tipos de usuario 
         if (userType == 1) {
             System.out.print("Ingrese su carrera: ");
             String major = scanner.nextLine();
