@@ -252,7 +252,7 @@ public class Main {
 
     
     private static void userMenu(User user) {
-        System.out.println("\n--- Bienvenido, " + user.getName() + " ---");
+        System.out.println("\n--- Bienvenido, " + user.getName() + " ---");//Menu introductorio para los usuarios que utilicen y se registren en la app 
        
     }
 
