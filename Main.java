@@ -60,40 +60,48 @@ public class Main {
                 default:
                     System.out.println("Opción no válida.");
             }
-        while (true) {
-            System.out.println("\n--- Sistema de Tutorías ---");
-            System.out.println("1. Iniciar sesión");
-            System.out.println("2. Registrarse");
-            System.out.println("3. Ingresar usuarios (Estudiantes/Tutores)");
-            System.out.println("4. Ver historial de actividades");
-            System.out.println("5. Encontrar coincidencias");
-            System.out.println("6. Salir");
+        while (true) { 
+            
+            System.out.println("1. Ver historial de actividades");
+            System.out.println("2. Encontrar coincidencias");
+            System.out.println("3. Realizar examen de opción múltiple");  // Nueva opción para el examen
+            System.out.println("4. Salir");
             System.out.print("Seleccione una opción: ");
-        
-            int option = scanner.nextInt();
-            scanner.nextLine(); 
-        
-            switch (option) {
+            int option2 = scanner.nextInt();
+            scanner.nextLine();
+            switch (option2) {
                 case 1:
-                    login();
+                showActivityHistory();
                     break;
                 case 2:
-                    register();
+                findMatches();
                     break;
                 case 3:
-                    enterUsers();
+                System.out.println("¿Que tema desea repasar? \n1.algebra \n2.funciones \n3.logaritmos \n4.trigonometria");
+                int tema = scanner.nextInt();
+                scanner.nextLine();
+                switch (tema) {
+                    case 1:
+                    takeTest("algebra.csv");
+                    break;
+                    case 2:
+                    takeTest("funciones.csv");
+                    break;
+                    case 3:
+                    takeTest("logaritmos.csv"); 
+                    break;
+                    case 4:
+                    takeTest("trigonometria.csv");
+                    break;
+                    default:
+                    System.out.println("Opción no válida.");
+                    
+                }
                     break;
                 case 4:
-                    showActivityHistory();
-                    break;
-                case 5:
-                    findMatches();
-                    break;
-                case 6:
-                    System.out.println("Saliendo del sistema...");
                     return;
                 default:
-                    System.out.println("Opción no válida.");
+                 System.out.println("Opción no válida.");
             }
         }
     }
