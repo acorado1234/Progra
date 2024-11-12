@@ -15,6 +15,7 @@ public class Main {
     private static ArrayList<AcademicActivity> activities = new ArrayList<>();
     private static Scanner scanner = new Scanner(System.in);
     private static final String CSV_FILE = "users.csv";
+    public static User currentUser = null;
 
     public static void main(String[] args) {
        
@@ -141,6 +142,7 @@ public class Main {
         } else {
             System.out.println("Credenciales incorrectas.");
         }
+        currentUser = user;
     }
 
     private static void saveUserToCSV(User user) {
@@ -206,6 +208,7 @@ public class Main {
             users.add(student);
             saveUserToCSV(student);
             System.out.println("Estudiante registrado exitosamente.");
+            currentUser = student;
         } else if (userType == 2) {
             System.out.print("Ingrese su área de especialización: ");
             String subjectExpertise = scanner.nextLine();
@@ -215,9 +218,11 @@ public class Main {
             users.add(tutor);
             saveUserToCSV(tutor);
             System.out.println("Tutor registrado exitosamente.");
+            currentUser = tutor;
         } else {
             System.out.println("Opción no válida.");
         }
+        
     }
 
    
