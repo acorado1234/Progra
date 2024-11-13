@@ -344,14 +344,7 @@ public class Main {
         }
     }
     public static void addActivity(){
-        System.out.print("Ingrese su Id de tutor ");
-        String tutorId = scanner.nextLine();
-        Tutor tutor = null;
-        for (User  user : users) {
-            if (user instanceof Tutor && user.getId().equals(tutorId)) {
-                tutor = (Tutor) user;
-            }
-        }
+
         System.out.print("Ingrese el nombre del evento: ");
         String name = scanner.nextLine();
         System.out.println("Ingrese una descripcion del evento: ");
@@ -372,8 +365,9 @@ public class Main {
         LocalDateTime horaInicio = LocalDateTime.parse(horaInicioStr, formatter);
         LocalDateTime horaFin = LocalDateTime.parse(horaFinStr, formatter);
 
-        AcademicActivity actividad = new AcademicActivity(tutor, name, description, capacity, horaInicio, horaFin);
+        AcademicActivity actividad = new AcademicActivity((Tutor) currentUser, name, description, capacity, horaInicio, horaFin);
         activities.add(actividad);
+        saveActivityToCSV(actividad);
         System.out.println("Actividad agregada con exito!");
 
     }
