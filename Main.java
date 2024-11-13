@@ -130,7 +130,7 @@ public class Main {
                       .append(student.getPassword()).append(",")
                       .append("Estudiante").append(",")
                       .append(student.getMajor()).append(",")
-                      .append(String.join(";", student.getInterests())).append("\n");
+                      .append(String.join(";", student.getInterests())).append("\n");//Observamos una instancia de los estudiantes 
             } else if (user instanceof Tutor) {
                 Tutor tutor = (Tutor) user;
                 writer.append(tutor.getId()).append(",")
