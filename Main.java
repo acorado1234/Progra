@@ -400,4 +400,11 @@ public class Main {
             }
         }
     }
+
+    public static void saveActivityToCSV(AcademicActivity activity) {
+        // Formato deseado para fecha y hora
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+    }
+
+
 }
