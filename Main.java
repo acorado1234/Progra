@@ -26,7 +26,7 @@ public class Main {
             System.out.println("\n--- Sistema de Tutorías ---");
             System.out.println("1. Iniciar sesión");
             System.out.println("2. Registrarse");
-        
+            System.out.println("3. salir");
             System.out.print("Seleccione una opción: ");
         
             option = scanner.nextInt();
@@ -34,7 +34,6 @@ public class Main {
           while (option != 3) { 
             switch (option) {
                 case 1:
-                System.out.println(users);
                     login();
                     if (currentUser instanceof Student){
                         menuStudent();
