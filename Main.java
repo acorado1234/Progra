@@ -437,7 +437,13 @@ public class Main {
             System.out.println("Error");
         }
     }
-
-
+    public static Tutor findTutor(String tutorId){
+        for(User user : users){
+            if(user instanceof Tutor && user.getId().equals(tutorId)){
+                return (Tutor) user;
+            }
+        }
+        return null;
+    }
 
 }
