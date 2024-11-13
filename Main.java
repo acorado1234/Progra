@@ -371,23 +371,15 @@ public class Main {
         System.out.println("Actividad agregada con exito!");
 
     }
-    public static void joinActivity(){
-        System.out.print("Ingrese su Id de estudiante ");
-        String studentId = scanner.nextLine();
-        Student student = null;
-        for (User  user : users) {
-            if (user instanceof Student && user.getId().equals(studentId)) {
-                student = (Student) user;
-            }
-        }
+  public static void joinActivity(){
         for (AcademicActivity activity : activities){
-            System.out.println("Id de la actividad: " + activity.getId() + "Nombre de la actividad: " + activity.getTitle());
+            System.out.println("Id de la actividad: " + activity.getId() + " Nombre de la actividad: " + activity.getTitle());
         }
         System.out.print("Ingrese el Id de la actividad que desea unirse: ");
         String activityId = scanner.nextLine();
         for (AcademicActivity activity : activities){
             if (activity.getId().equals(activityId)){
-                activity.addStudent(student);
+                activity.addStudent((Student) currentUser);
                 System.out.println("Se ha unido a la actividad con exito!");
             }else{
                 System.out.println("No se ha encontrado la actividad");
