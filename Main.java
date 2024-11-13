@@ -404,6 +404,10 @@ public class Main {
     public static void saveActivityToCSV(AcademicActivity activity) {
         // Formato deseado para fecha y hora
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+        try (FileWriter writer = new FileWriter("activities.csv", true)) {
+            System.out.println("Guardando actividad en el archivo CSV...");
+}
+
     }
 
 
