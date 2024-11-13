@@ -30,10 +30,6 @@ public class Student extends User {
         this.interests = interests;
     }
 
-    @Override
-    public void displayInfo() {
-        super.displayInfo();
-        System.out.println("Major: " + major);
-        System.out.println("Interests: " + interests);
+    public void addResult(TestResult result){
+        results.add(result);
     }
-}
