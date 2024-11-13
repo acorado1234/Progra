@@ -406,6 +406,13 @@ public class Main {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
         try (FileWriter writer = new FileWriter("activities.csv", true)) {
             System.out.println("Guardando actividad en el archivo CSV...");
+            writer.append(activity.getTutor().getId()).append(",")
+                  .append(activity.getTitle()).append(",")
+                  .append(activity.getDescription()).append(",")
+                  .append(String.valueOf(activity.getMaxCapacity())).append(",")
+                  .append(activity.getStartDateTime().format(formatter)).append(",")
+                  .append(activity.getEndDateTime().format(formatter)).append("\n");
+
 }
 
     }
