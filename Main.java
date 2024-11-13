@@ -439,7 +439,7 @@ public class Main {
     }
     public static Tutor findTutor(String tutorId){
         for(User user : users){
-            if(user instanceof Tutor && user.getId().equals(tutorId)){
+            if(user instanceof Tutor && user.getId().equals(tutorId)){//Encontrar un tutor por medio de funciones y necesidades del estudiante
                 return (Tutor) user;
             }
         }
