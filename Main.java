@@ -149,6 +149,34 @@ public class Main {
             }
         }
     }
+    private static void menuTutor(){
+        while (true) { 
+            
+            System.out.println("1. Ver historial de actividades");
+            System.out.println("2. Encontrar coincidencias");
+            System.out.println("3. Crear Actividad");
+            System.out.println("4. Salir");
+            System.out.print("Seleccione una opción: ");
+            int option2 = scanner.nextInt();
+            scanner.nextLine();
+            switch (option2) {
+                case 1:
+                showActivityHistory();
+                    break;
+                case 2:
+                findMatches();
+                    break;
+                case 3:
+                    addActivity();
+                    break;
+                case 4:
+                    option = 3;
+                    return;
+                default:
+                 System.out.println("Opción no válida.");
+            }
+        }
+    }
     
     private static void takeTest(String archivo) {
         Test examen = new Test();
