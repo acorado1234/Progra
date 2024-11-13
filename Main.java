@@ -139,7 +139,7 @@ public class Main {
                       .append(tutor.getPassword()).append(",")
                       .append("Tutor").append(",")
                       .append(tutor.getSubjectExpertise()).append(",")
-                      .append(String.join(";", tutor.getSpecializations())).append("\n");
+                      .append(String.join(";", tutor.getSpecializations())).append("\n");//Informacion del tutor 
             }
             System.out.println("Usuario guardado exitosamente.");
         } catch (IOException e) {
