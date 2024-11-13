@@ -431,6 +431,19 @@ public class Main {
         System.out.println("Actividad guardada exitosamente.");
     }
 
+    /**
+     * Carga las actividades académicas desde un archivo CSV.
+     *
+     * El método lee cada línea del archivo `activities.csv`, procesa los datos de la actividad,
+     * busca al tutor correspondiente usando su ID, y crea una instancia de {@link AcademicActivity}.
+     * 
+     * Si el tutor no es encontrado, muestra un mensaje indicando el problema.
+     * 
+     * @throws IOException Si ocurre un error al leer el archivo CSV.
+     * 
+     * Ejemplo de formato CSV:
+     * tutorId,titulo,descripcion,capacidadMaxima,fechaInicio,fechaFin
+     */
 
     public static void loadActivitiesFromCSV() {
         try (BufferedReader reader = new BufferedReader(new FileReader("activities.csv"))) {
@@ -446,8 +459,13 @@ public class Main {
                 DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
                 LocalDateTime startDateTime = LocalDateTime.parse(startDateTimeStr, formatter);
                 LocalDateTime endDateTime = LocalDateTime.parse(endDateTimeStr, formatter);
-
-
+                Tutor tutor = findTutor(tutorId);
+                if (tutor != null) {
+                    AcademicActivity activity = new AcademicActivity(tutor, title, description, capacity, startDateTime, endDateTime);
+                    activities.add(activity);
+                } else {
+                    System.out.println("No se ha encontrado el tutor con el cual corresponde a la actividad");
+                }
             }
         } catch (IOException e) {
             System.out.println("Error al cargar actividades desde el archivo CSV: " + e.getMessage());
