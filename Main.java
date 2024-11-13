@@ -436,7 +436,18 @@ public class Main {
         try (BufferedReader reader = new BufferedReader(new FileReader("activities.csv"))) {
             String line;
             while ((line = reader.readLine()) != null) {
-                // Lógica para procesar cada línea
+                String[] data = line.split(",");
+                String tutorId = data[0];
+                String title = data[1];
+                String description = data[2];
+                int capacity = Integer.parseInt(data[3]);
+                String startDateTimeStr = data[4];
+                String endDateTimeStr = data[5];
+                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+                LocalDateTime startDateTime = LocalDateTime.parse(startDateTimeStr, formatter);
+                LocalDateTime endDateTime = LocalDateTime.parse(endDateTimeStr, formatter);
+
+
             }
         } catch (IOException e) {
             System.out.println("Error al cargar actividades desde el archivo CSV: " + e.getMessage());
