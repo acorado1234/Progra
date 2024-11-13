@@ -11,6 +11,8 @@ public class Student extends User {
         super(id, name, email, password);
         this.major = major;
         this.interests = interests;
+        this.results = new ArrayList<>();
+    }
   
     public String getMajor() {
         return major;
