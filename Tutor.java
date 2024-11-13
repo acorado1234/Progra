@@ -1,7 +1,7 @@
 import java.util.List;
 
 public class Tutor extends User {
-    private List<String> specializations;
+    private List<String> specializations;//Lista especializaciones 
     protected Schedule availability;
     protected String subjectExpertise; 
     protected float rating;
