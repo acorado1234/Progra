@@ -15,7 +15,8 @@ public class Main {
     private static ArrayList<AcademicActivity> activities = new ArrayList<>();
     private static Scanner scanner = new Scanner(System.in);
     private static final String CSV_FILE = "users.csv";
-    public static User currentUser = null;
+    private static User currentUser = null;
+    private static int option = 0;
 
     public static void main(String[] args) {
        
@@ -25,73 +26,43 @@ public class Main {
             System.out.println("\n--- Sistema de Tutorías ---");
             System.out.println("1. Iniciar sesión");
             System.out.println("2. Registrarse");
+        
             System.out.print("Seleccione una opción: ");
         
-            int option = scanner.nextInt();
+            option = scanner.nextInt();
             scanner.nextLine(); 
-        
+          while (option != 3) { 
             switch (option) {
                 case 1:
+                System.out.println(users);
                     login();
+                    if (currentUser instanceof Student){
+                        menuStudent();
+                    }else{
+                        if (currentUser instanceof Tutor){
+                            menuTutor();
+                        }else{
+                            return;
+                        }
+                    }
                     break;
                 case 2:
                     register();
+                    if (currentUser instanceof Student){
+                        menuStudent();
+                    }else{
+                        if (currentUser instanceof Tutor){
+                            menuTutor();
+                        }else{
+                            return;
+                        }
+                    }
                     break;
                 default:
                     System.out.println("Opción no válida.");
-            }
-        while (true) { 
-            
-            System.out.println("1. Ver historial de actividades");
-            System.out.println("2. Encontrar coincidencias");
-            System.out.println("3. Realizar examen de opción múltiple");  // Nueva opción para el examen
-            System.out.println("4. Crear Actividad");
-            System.out.println("5. Unirse a una actividad");
-            System.out.println("6. Salir");
-            System.out.print("Seleccione una opción: ");
-            int option2 = scanner.nextInt();
-            scanner.nextLine();
-            switch (option2) {
-                case 1:
-                showActivityHistory();
-                    break;
-                case 2:
-                findMatches();
-                    break;
-                case 3:
-                System.out.println("¿Que tema desea repasar? \n1.algebra \n2.funciones \n3.logaritmos \n4.trigonometria");
-                int tema = scanner.nextInt();
-                scanner.nextLine();
-                switch (tema) {
-                    case 1:
-                    takeTest("algebra.csv");
-                    break;
-                    case 2:
-                    takeTest("funciones.csv");
-                    break;
-                    case 3:
-                    takeTest("logaritmos.csv"); 
-                    break;
-                    case 4:
-                    takeTest("trigonometria.csv");
-                    break;
-                    default:
-                    System.out.println("Opción no válida.");
-                    
-                }
-                    break;
-                case 4:
-                    addActivity();
-                    break;
-                case 5:
-                    joinActivity();
-                    break;
-                case 6:
-                    return;
-                default:
-                 System.out.println("Opción no válida.");
             }
         }
+        
     }
 
 
