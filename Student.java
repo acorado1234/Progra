@@ -4,6 +4,7 @@ import java.util.ArrayList;
 public class Student extends User {
     private String major;
     private List<String> interests; 
+    private ArrayList<TestResult> results; 
 
 
     public Student(String id, String name, String email, String password, String major, List<String> interests) {
