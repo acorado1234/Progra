@@ -33,3 +33,10 @@ public class Student extends User {
     public void addResult(TestResult result){
         results.add(result);
     }
+
+    public void showPastResulst(){
+        for(TestResult test : results){
+            test.mostrarResultado();
+        }
+    }
+}
