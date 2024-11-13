@@ -170,7 +170,7 @@ public class Main {
         System.out.print("Ingrese su contraseña: ");
         String password = scanner.nextLine();
         System.out.print("¿Es estudiante o tutor? (1. Estudiante, 2. Tutor): ");
-        int userType = scanner.nextInt();
+        int userType = scanner.nextInt();//Validar todos los datos correctos 
         //scanner.nextLine(); 
 
         if (userType == 1) {
