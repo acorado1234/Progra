@@ -472,5 +472,15 @@ public class Main {
         }
     }
 
+    public static void loadUsersFromCSV() {
+        try (BufferedReader br = new BufferedReader(new FileReader("users.csv"))) {
+            br.readLine();
+            String line;
+        } catch (IOException e) {
+            System.out.println("Error");
+        }
+    }
+
+
 
 }
