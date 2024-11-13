@@ -476,6 +476,14 @@ public class Main {
         try (BufferedReader br = new BufferedReader(new FileReader("users.csv"))) {
             br.readLine();
             String line;
+            while ((line = br.readLine()) != null) {
+                String[] values = line.split(",");
+                String id = values[0];
+                String name = values[1];
+                String email = values[2];
+                String password = values[3];
+            }
+
         } catch (IOException e) {
             System.out.println("Error");
         }
