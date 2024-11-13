@@ -482,6 +482,20 @@ public class Main {
                 String name = values[1];
                 String email = values[2];
                 String password = values[3];
+                
+                if (values[4].equals("Tutor")) {
+                    String subject = values[5];
+                    String[] specializationsArray = scanner.nextLine().split(",");
+                    List<String> specialization = Arrays.asList(specializationsArray);
+                    Tutor tutor = new Tutor(id, name, email, password, subject, specialization);
+                    users.add(tutor);
+                }else {
+                    String major = values[5];
+                    String[] interestsArray = scanner.nextLine().split(",");
+                    List<String> interests = Arrays.asList(interestsArray);
+                    Student alumno = new Student(id, name, email, password, major, interests);
+                    users.add(alumno);
+                }
             }
 
         } catch (IOException e) {
