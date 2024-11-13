@@ -48,4 +48,11 @@ public class AcademicActivity{
     public int getCurrentEnrollment() { return currentEnrollment; }
     public LocalDateTime getStartDateTime() { return startDateTime; }
     public LocalDateTime getEndDateTime() { return endDateTime; }
+
+    @Override
+    public String toString(){
+        return "Actividad: " + this.title + "\nDescripcion: " + this.description + "\nFecha y hora de inicio: " + this.startDateTime + "\nFecha y hora de fin: " + this.endDateTime + "\n";
+
+    }
+    
 }
