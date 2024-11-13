@@ -279,7 +279,7 @@ public class Main {
        
     }
 
-    private static void findMatches() {
+     private static void findMatches() {
         MatchingSystem matchingSystem = new MatchingSystem();
         
         for (User  user : users) {
@@ -290,57 +290,20 @@ public class Main {
             }
         }
     
-        System.out.println("\n--- Encontrar coincidencias ---");
-        System.out.println("1. Encontrar coincidencias para un estudiante");
-        System.out.println("2. Encontrar coincidencias para un tutor");
-        System.out.print("Seleccione una opción: ");
-    
-        int option = scanner.nextInt();
-        scanner.nextLine(); 
-    
-        switch (option) {
-            case 1:
-                System.out.print("Ingrese el ID del estudiante: ");
-                String studentId = scanner.nextLine();
-                Student student = null;
-                for (User  user : users) {
-                    if (user instanceof Student && user.getId().equals(studentId)) {
-                        student = (Student) user;
-                        break;
-                    }
-                }
-                if (student != null) {
-                    List<Tutor> matches = matchingSystem.findMatchesForStudent(student);
-                    System.out.println("Coincidencias encontradas para el estudiante " + student.getName() + ":");
+        if(currentUser instanceof Student){
+            List<Tutor> matches = matchingSystem.findMatchesForStudent((Student)currentUser);
+                    System.out.println("Coincidencias encontradas para el estudiante " + currentUser.getName() + ":");
                     for (Tutor match : matches) {
                         System.out.println(match.getName());
                     }
-                } else {
-                    System.out.println("Estudiante no encontrado.");
+        } else{
+            if(currentUser instanceof Tutor){
+                List<Student> matches = matchingSystem.findMatchesForTutor((Tutor)currentUser);
+                System.out.println("Coincidencias encontradas para el tutor " + currentUser.getName() + ":");
+                for (Student match : matches) {
+                    System.out.println(match.getName());
                 }
-                break;
-            case 2:
-                System.out.print("Ingrese el ID del tutor: ");
-                String tutorId = scanner.nextLine();
-                Tutor tutor = null;
-                for (User  user : users) {
-                    if (user instanceof Tutor && user.getId().equals(tutorId)) {
-                        tutor = (Tutor) user;
-                        break;
-                    }
-                }
-                if (tutor != null) {
-                    List<Student> matches = matchingSystem.findMatchesForTutor(tutor);
-                    System.out.println("Coincidencias encontradas para el tutor " + tutor.getName() + ":");
-                    for (Student match : matches) {
-                        System.out.println(match.getName());
-                    }
-                } else {
-                    System.out.println("Tutor no encontrado.");
-                }
-                break;
-            default:
-                System.out.println("Opción no válida.");
+            }
         }
     }
     public static void addActivity(){
