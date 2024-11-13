@@ -472,6 +472,18 @@ public class Main {
         }
     }
 
+    /**
+     * Carga los usuarios (estudiantes y tutores) desde un archivo CSV.
+     *
+     * El método lee cada línea del archivo `users.csv`, procesa los datos y crea instancias
+     * de {@link Tutor} o {@link Student} según corresponda. 
+     * Los usuarios se agregan a la lista global `users`.
+     *
+     * Ejemplo de formato CSV:
+     * id,nombre,email,contraseña,tipoUsuario,especialidad/carrera,especializaciones/intereses
+     *
+     * @throws IOException Si ocurre un error al leer el archivo CSV.
+     */
     public static void loadUsersFromCSV() {
         try (BufferedReader br = new BufferedReader(new FileReader("users.csv"))) {
             br.readLine();
