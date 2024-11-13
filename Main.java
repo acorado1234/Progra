@@ -426,13 +426,21 @@ public class Main {
                   .append(activity.getStartDateTime().format(formatter)).append(",")
                   .append(activity.getEndDateTime().format(formatter)).append("\n");
         } catch (IOException e) {
-        System.out.println("Error al guardar la actividad en el archivo CSV: " + e.getMessage());
+            System.out.println("Error al guardar la actividad en el archivo CSV: " + e.getMessage());
+        }
+        System.out.println("Actividad guardada exitosamente.");
     }
-    System.out.println("Actividad guardada exitosamente.");
 
 
-}
-
+    public static void loadActivitiesFromCSV() {
+        try (BufferedReader reader = new BufferedReader(new FileReader("activities.csv"))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                // Lógica para procesar cada línea
+            }
+        } catch (IOException e) {
+            System.out.println("Error al cargar actividades desde el archivo CSV: " + e.getMessage());
+        }
     }
 
 
