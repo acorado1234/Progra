@@ -95,6 +95,61 @@ public class Main {
     }
 
 
+    private static void menuStudent(){
+        while (true) { 
+            
+            System.out.println("1. Ver historial de actividades");
+            System.out.println("2. Encontrar coincidencias");
+            System.out.println("3. Realizar examen de opción múltiple");  // Nueva opción para el examen
+            System.out.println("4. Unirse a una actividad");
+            System.out.println("5. ver historial de examenes");
+            System.out.println("6. Salir");
+            System.out.print("Seleccione una opción: ");
+            int option2 = scanner.nextInt();
+            scanner.nextLine();
+            switch (option2) {
+                case 1:
+                showActivityHistory();
+                    break;
+                case 2:
+                findMatches();
+                    break;
+                case 3:
+                System.out.println("¿Que tema desea repasar? \n1.algebra \n2.funciones \n3.logaritmos \n4.trigonometria");
+                int tema = scanner.nextInt();
+                scanner.nextLine();
+                switch (tema) {
+                    case 1:
+                    takeTest("algebra.csv");
+                    break;
+                    case 2:
+                    takeTest("funciones.csv");
+                    break;
+                    case 3:
+                    takeTest("logaritmos.csv"); 
+                    break;
+                    case 4:
+                    takeTest("trigonometria.csv");
+                    break;
+                    default:
+                    System.out.println("Opción no válida."); 
+                }
+                    break;
+                case 4:
+                    joinActivity();
+                    break;
+                case 5:
+                    ((Student) currentUser).showPastResulst();
+                    break;
+                case 6:
+                    option = 3;
+                    return;
+                default:
+                 System.out.println("Opción no válida.");
+            }
+        }
+    }
+    
     private static void takeTest(String archivo) {
         Test examen = new Test();
         examen.cargarPreguntasDesdeCSV(archivo);  // Carga las preguntas desde el archivo CSV
