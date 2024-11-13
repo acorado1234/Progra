@@ -8,10 +8,6 @@ public class Student extends User {
 
 
     public Student(String id, String name, String email, String password, String major, List<String> interests) {
-        super(id, name, email, password);
-        this.major = major;
-        this.interests = interests; 
-    }
 
   
     public String getMajor() {
