@@ -19,34 +19,8 @@ public class Main {
 
     public static void main(String[] args) {
        
-        try (BufferedReader br = new BufferedReader(new FileReader("users.csv"))) {
-
-            br.readLine();
-            String line;
-            while ((line = br.readLine()) != null) {
-                String[] values = line.split(",");
-                String id = values[0];
-                String name = values[1];
-                String email = values[2];
-                String password = values[3];
-                if(values[4].equals("Tutor")){
-                    String subject = values[5];
-                    String[] SpecializationsArray = scanner.nextLine().split(",");
-                    List<String> specialization = Arrays.asList(SpecializationsArray);
-                    Tutor tutor = new Tutor(id, name, email, password, subject, specialization);
-                    users.add(tutor);
-                } else{
-                    String major = values[5];
-                    String[] interestsArray = scanner.nextLine().split(",");
-                    List<String> interests = Arrays.asList(interestsArray);
-                    Student alumno = new Student(id, name, email, password, major, interests);
-                    users.add(alumno);
-                }
-            }
-        
-        }catch (IOException e){
-            System.out.println("Error");
-        }
+        loadUsersFromCSV();
+        loadActivitiesFromCSV();
         
             System.out.println("\n--- Sistema de Tutorías ---");
             System.out.println("1. Iniciar sesión");
