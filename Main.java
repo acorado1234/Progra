@@ -401,6 +401,19 @@ public class Main {
         }
     }
 
+    /**
+     * Guarda una actividad académica en un archivo CSV.
+     *
+     * Este método agrega una nueva línea al archivo `activities.csv` con los datos de la actividad,
+     * incluyendo el ID del tutor, título, descripción, capacidad máxima, fecha y hora de inicio, 
+     * y fecha y hora de fin. 
+     *
+     * @param activity La actividad académica que se va a guardar en el archivo CSV.
+     * @throws IOException Si ocurre un error al escribir en el archivo.
+     * 
+     * Ejemplo de formato CSV:
+     * tutorId,titulo,descripcion,capacidadMaxima,fechaInicio,fechaFin
+     */
     public static void saveActivityToCSV(AcademicActivity activity) {
         // Formato deseado para fecha y hora
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
@@ -412,6 +425,11 @@ public class Main {
                   .append(String.valueOf(activity.getMaxCapacity())).append(",")
                   .append(activity.getStartDateTime().format(formatter)).append(",")
                   .append(activity.getEndDateTime().format(formatter)).append("\n");
+        } catch (IOException e) {
+        System.out.println("Error al guardar la actividad en el archivo CSV: " + e.getMessage());
+    }
+    System.out.println("Actividad guardada exitosamente.");
+
 
 }
 
